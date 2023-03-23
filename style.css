@@ -1,0 +1,62 @@
+h1{
+    background-color: gold;
+    margin-top: 0px;
+    padding-top: 10px;
+    padding-bottom: 12px;
+}
+
+.btn-info{
+    float:right;
+    margin-right: 10px;
+}
+
+#score{
+    float:left;
+    margin-left: 10px;
+    font-family: 'Satisfy', cursive;
+    font-size: 30px;
+    font-weight: bold;
+    color: maroon;
+    background-color: pink;
+    padding: 5px;
+}
+
+#timer{
+    float:right; 
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 30px;
+    color: maroon;
+    background-color: pink;
+    padding: 5px;
+    font-family: 'Permanent Marker', cursive;
+}
+
+#heading{
+    font-family: 'Delicious Handrawn', cursive;
+    color: red;
+    font-weight: bold;
+    font-size: 50px;
+    margin-bottom: 0px;
+    padding-left: 120px;
+}
+
+#label, #confidence{
+    font-family: 'Bungee Spice', cursive;
+    font-size: 35px;
+    background-color: chartreuse;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#show_sketch{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 25px;
+}
+
+#clear{
+    margin-top: 15px;
+}
