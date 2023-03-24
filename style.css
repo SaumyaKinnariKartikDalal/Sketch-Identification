@@ -1,19 +1,19 @@
-h1{
+h1 {
     background-color: gold;
     margin-top: 0px;
     padding-top: 10px;
     padding-bottom: 12px;
 }
 
-.btn-info{
-    float:right;
+.btn-info {
+    float: right;
     margin-right: 10px;
 }
 
-#score{
-    float:left;
+#score {
+    float: left;
     margin-left: 10px;
-    font-family: 'Satisfy', cursive;
+    font-family: 'Pacifico', cursive;
     font-size: 30px;
     font-weight: bold;
     color: maroon;
@@ -21,8 +21,8 @@ h1{
     padding: 5px;
 }
 
-#timer{
-    float:right; 
+#timer {
+    float: right;
     margin-right: 10px;
     font-weight: bold;
     font-size: 30px;
@@ -32,7 +32,7 @@ h1{
     font-family: 'Permanent Marker', cursive;
 }
 
-#heading{
+#heading {
     font-family: 'Delicious Handrawn', cursive;
     color: red;
     font-weight: bold;
@@ -41,7 +41,8 @@ h1{
     padding-left: 120px;
 }
 
-#label, #confidence{
+#label,
+#confidence {
     font-family: 'Bungee Spice', cursive;
     font-size: 35px;
     background-color: chartreuse;
@@ -49,7 +50,7 @@ h1{
     margin-bottom: 0px;
 }
 
-#show_sketch{
+#show_sketch {
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 15px;
@@ -57,6 +58,34 @@ h1{
     font-size: 25px;
 }
 
-#clear{
+#clear {
     margin-top: 15px;
+}
+
+#task {
+    font-weight: bold;
+    font-size: 30px;
+    color: aqua;
+    font-family: 'Delicious', cursive;
+    background-color: blue;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+canvas {
+    border: 5px solid black;
+    border-radius: 20px;
+    animation-name: example;
+    animation-duration: 8s;
+    margin-top: 170px;
+    animation-iteration-count: infinite;
+}
+
+@keyframes example {
+    from {
+        box-shadow: 5px 5px 100px- red;
+    }
+    to {
+        box-shadow: 5px 5px 100px yellow;
+    }
 }
