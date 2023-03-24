@@ -76,16 +76,16 @@ canvas {
     border: 5px solid black;
     border-radius: 20px;
     animation-name: example;
-    animation-duration: 8s;
+    animation-duration: 6s;
     margin-top: 170px;
     animation-iteration-count: infinite;
 }
 
 @keyframes example {
     from {
-        box-shadow: 5px 5px 100px- red;
+        box-shadow: 1px 1px 20px 10px red;
     }
     to {
-        box-shadow: 5px 5px 100px yellow;
+        box-shadow: 1px 1px 20px 10px yellow;
     }
-}
+} 
