@@ -5,29 +5,56 @@ answer_holder = "";
 time_status = "pending";
 randomNo = Math.floor((Math.random() * quick_draw_data_set.length) + 1)
 sketch = quick_draw_data_set[randomNo];
-drawn_sketch = "";
+drawn_sketch = ""; 
 document.getElementById('task').innerHTML = "Sketch To Be Drawn: " + sketch;
 
 function preload() {
-
+    classifier = ml5.imageClassifier("DoodleNet");
 }
 
 function setup() {
     canvas = createCanvas(1100, 380);
     canvas.center();
     background("white");
+    canvas.mouseReleased(classifyCanvas);
+    synth = window.SpeechSynthesis;
 }
 
 function draw() {
+    stroke(0);
+    strokeWeight(13);
+    if (mouseIsPressed){
+        line(pmouseX,pmouseY, mouseX, mouseY);
+    }
     check_sketch();
     if (time_status == "over") {
         updateCanvas();
+        score = score - 1;
+        document.getElementById("score").innerHTML = "Score: " + score;
     } else {
         if (drawn_sketch == sketch) {
             score = score + 1;
             document.getElementById("score").innerHTML = "Score: " + score;
             answer_holder = "set";
         }
+    }
+}
+
+function classifyCanvas() {
+    classifier.classify(canvas, gotResult)
+}
+
+function gotResult(error, result) {
+    if(error){
+        console.log(error);
+    }
+    else{
+        console.log(result);
+        document.getElementById("label"). innerHTML = "Your Sketch: "+ result[0].label;
+        drawn_sketch = result[0].label;
+        document.getElementById("confidence"). innerHTML = "Confidence: "+ Math.round(result[0].confidence*100) + "%";
+        utterThis = new SpeechSynthesisUtterance(result[0].label);
+        synth.speak(utterThis);
     }
 }
 
@@ -45,7 +72,7 @@ function updateCanvas() {
 function countdown() {
     if (timeLeft == 0) {
         time_status = "over";
-        timeLeft = 500;
+        timeLeft = 1500;
     } else {
         time_status = "pending";
         document.getElementById('timer').innerHTML = "Timer: " + timeLeft;
