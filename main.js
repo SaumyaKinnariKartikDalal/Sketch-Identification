@@ -17,7 +17,6 @@ function setup() {
     canvas.center();
     background("white");
     canvas.mouseReleased(classifyCanvas);
-    synth = window.SpeechSynthesis;
 }
 
 function draw() {
@@ -44,17 +43,19 @@ function classifyCanvas() {
     classifier.classify(canvas, gotResult)
 }
 
-function gotResult(error, result) {
+function gotResult(error, results) {
     if(error){
         console.log(error);
     }
     else{
-        console.log(result);
-        document.getElementById("label"). innerHTML = "Your Sketch: "+ result[0].label;
-        drawn_sketch = result[0].label;
-        document.getElementById("confidence"). innerHTML = "Confidence: "+ Math.round(result[0].confidence*100) + "%";
-        utterThis = new SpeechSynthesisUtterance(result[0].label);
-        synth.speak(utterThis);
+        console.log(results);
+        document.getElementById("label"). innerHTML = "Your Sketch: "+ results[0].label;
+        drawn_sketch = results[0].label;
+        document.getElementById("confidence"). innerHTML = "Confidence: "+ Math.round(results[0].confidence*100) + "%";
+        var synth = window.speechSynthesis;
+      speak_data = "Object detected is - " + results[0].label;
+      var utterThis = new SpeechSynthesisUtterance(speak_data);
+      synth.speak(utterThis);
     }
 }
 
